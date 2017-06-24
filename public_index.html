@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="procuratorate">
+<head lang="zh-cn">
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<meta charset="UTF-8">
+	<!--2,viewport-->
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<!--3,x-ua-compatible-->
+	<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+	<title>检察院审讯指挥系统</title>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/public_index.css"/>
+</head>
+<body ng-controller="parent">
+	<!--引入头部-->
+	<div ng-include="'case/case_header.html'"></div>
+	<!--中间主体内容-->
+	<section id="section">
+		<div class="container">
+			<div class="row">
+				<!--左边菜单栏-->
+				<div class="col-xs-2">
+					<ul class="list-unstyled" id="tab_list">
+						<li ng-click="jump(item.jumpTip)" ng-repeat="item in showList">
+							<a href="#" >
+								<img ng-src="img/{{item.imgUrl}}" alt="">
+								<br>
+								<span>{{item.text}}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--右边切换内容-->
+				<div class="col-xs-10" id="context_show">
+					<!--ng控制的中间切换主内容-->
+					<div ng-view>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/public_index_date.js"></script>
+	<script src="js/public_index_view.js"></script>
+</body>
+</html>
